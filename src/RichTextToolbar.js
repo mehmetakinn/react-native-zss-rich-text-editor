@@ -93,7 +93,7 @@ export default class RichTextToolbar extends Component {
     if (this.props.iconMap && this.props.iconMap[action]) {
       return this.props.iconMap[action];
     } else if (getDefaultIcon()[action]){
-      return getDefaultIcon()[action];
+      return <Image source={getDefaultIcon()[action]} style={{tintColor: selected ? this.props.selectedIconTint : this.props.iconTint}}/>;
     } else {
       return undefined;
     }
@@ -110,7 +110,7 @@ export default class RichTextToolbar extends Component {
           ]}
           onPress={() => this._onPress(action)}
       >
-        {icon ? <Image source={icon} style={{tintColor: selected ? this.props.selectedIconTint : this.props.iconTint}}/> : null}
+        {icon ? icon : null}
       </TouchableOpacity>
     );
   }
